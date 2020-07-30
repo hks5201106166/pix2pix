@@ -35,6 +35,12 @@ from util import html
 from options.train_options import TrainOptions
 
 if __name__ == '__main__':
+    # t=os.listdir('/home/ubuntu/hks/ocr/segment/data/data_train_fake')
+    # flag=os.listdir('/home/ubuntu/hks/ocr/segment/data/data_remove_logo_fake/train/')
+    # while flag!=886848:
+    #     flag = os.listdir('/home/ubuntu/hks/ocr/segment/data/data_remove_logo_fake/train/')
+    #     print(len(flag))
+
     opt = TestOptions().parse()  # get test options
     # hard-code some parameters for test
     opt.num_threads = 0   # test code only supports num_threads = 1
@@ -54,8 +60,8 @@ if __name__ == '__main__':
     if opt.eval:
         model.eval()
     for i, data in enumerate(dataset):
-        if i >= opt.num_test:  # only apply our model to opt.num_test images.
-            break
+        # if i >= opt.num_test:  # only apply our model to opt.num_test images.
+        #     break
         model.set_input(data)  # unpack data from data loader
         model.test()           # run inference
         visuals = model.get_current_visuals()  # get image results

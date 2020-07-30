@@ -23,11 +23,11 @@ class BaseOptions():
         # parser.add_argument('--dataroot',default='/home/simple/generator_model/pytorch-CycleGAN-and-pix2pix-master/datasets/edges2shoes', help='path to images (should have subfolders trainA, trainB, valA, valB, etc)')
         # parser.add_argument('--name', type=str, default='edges2shoes_pix2pix', help='name of the experiment. It decides where to store samples and models')
         parser.add_argument('--dataroot',
-                            default='/home/ubuntu/hks/ocr/pix2pix/datasets/remove_logo_and_aug_image',
+                            default='/home/ubuntu/hks/ocr/pix2pix/datasets/data_fake_logo/',
                             help='path to images (should have subfolders trainA, trainB, valA, valB, etc)')
         parser.add_argument('--name', type=str, default='fake_data_for_first_train_pix2pix',
                             help='name of the experiment. It decides where to store samples and models')
-        parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+        parser.add_argument('--gpu_ids', type=str, default='1', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
         parser.add_argument('--checkpoints_dir', type=str, default='/home/ubuntu/hks/ocr/pix2pix/pix2pix/checkpoints', help='models are saved here')
         # model parameters
         parser.add_argument('--model', type=str, default='pix2pix', help='chooses which model to use. [cycle_gan | pix2pix | test | colorization]')
@@ -44,10 +44,10 @@ class BaseOptions():
         parser.add_argument('--no_dropout', action='store_true', help='no dropout for the generator')
         # dataset parameters
         parser.add_argument('--dataset_mode', type=str, default='unaligned', help='chooses how datasets are loaded. [unaligned | aligned | single | colorization]')
-        parser.add_argument('--direction', type=str, default='AtoB', help='AtoB or BtoA')
+        parser.add_argument('--direction', type=str, default='BtoA', help='AtoB or BtoA')
         parser.add_argument('--serial_batches', action='store_true', help='if true, takes images in order to make batches, otherwise takes them randomly')
         parser.add_argument('--num_threads', default=4, type=int, help='# threads for loading data')
-        parser.add_argument('--batch_size', type=int, default=8, help='input batch size')
+        parser.add_argument('--batch_size', type=int, default=16, help='input batch size')
         parser.add_argument('--load_size', type=int, default=512, help='scale images to this size')
         parser.add_argument('--crop_size', type=int, default=512, help='then crop to this size')
         parser.add_argument('--max_dataset_size', type=int, default=float("inf"), help='Maximum number of samples allowed per dataset. If the dataset directory contains more than max_dataset_size, only a subset is loaded.')
